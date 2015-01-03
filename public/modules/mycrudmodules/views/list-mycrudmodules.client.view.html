@@ -1,0 +1,19 @@
+<section data-ng-controller="MycrudmodulesController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Mycrudmodules</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="mycrudmodule in mycrudmodules" data-ng-href="#!/mycrudmodules/{{mycrudmodule._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="mycrudmodule.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="mycrudmodule.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="mycrudmodule.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!mycrudmodules.$resolved || mycrudmodules.length">
+    	No Mycrudmodules yet, why don't you <a href="/#!/mycrudmodules/create">create one</a>?
+    </div>
+</section>
